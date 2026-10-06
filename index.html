@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Biotrade Colombia Medellin</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2d;
+      --text:#e8eefc;
+      --muted:#a9b4d0;
+      --brand:#39d98a;
+      --brand2:#4ea3ff;
+      --border: rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+    img{max-width:100%}
+    section[id]{scroll-margin-top:80px}
+    body{
+      overflow-x:hidden;
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 400px at 20% 0%, rgba(78,163,255,.20), transparent),
+                  radial-gradient(700px 350px at 80% 10%, rgba(57,217,138,.18), transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:1100px; margin:0 auto; padding: 0 18px;}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(57,217,138,.95), rgba(78,163,255,.95));
+      display:grid; place-items:center;
+      box-shadow: 0 10px 30px rgba(57,217,138,.18);
+      border:1px solid rgba(255,255,255,.18);
+      font-size:18px;
+    }
+    .navlinks{display:flex; gap:18px; flex-wrap:wrap}
+    .navlinks a{
+      text-decoration:none; color:var(--muted);
+      padding:8px 10px; border-radius:10px;
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.04)}
+    .cta{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border:0;
+      color:#06101a;
+      font-weight:800;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow: 0 12px 30px rgba(78,163,255,.18);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center; gap:10px;
+      white-space:nowrap;
+    }
+
+    /* Hero */
+    .hero{padding: 46px 0 20px;}
+    .hero-grid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:center;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height:1.08;
+    }
+    .lead{
+      color:var(--muted);
+      font-size: 1.06rem;
+      margin: 0 0 18px;
+      max-width: 58ch;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 18px;
+    }
+    .btn-secondary{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 30px 70px rgba(0,0,0,.25);
+    }
+    .stats{
+      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+      margin-top:12px;
+    }
+    .stat{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .stat b{display:block; font-size:1.05rem}
+    .stat span{color:var(--muted); font-size:.92rem}
+
+    /* Sections */
+    section{padding: 26px 0;}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+    h2{margin:0; font-size: 1.6rem}
+    .muted{color:var(--muted)}
+    .grid-3{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px){
+      .grid-3{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .card h3{margin: 10px 0 8px; font-size: 1.1rem}
+    .icon{
+      width:42px; height:42px; border-radius:14px;
+      background: rgba(57,217,138,.12);
+      border: 1px solid rgba(57,217,138,.22);
+      display:grid; place-items:center;
+      font-size: 20px;
+    }
+    .icon.blue{
+      background: rgba(78,163,255,.12);
+      border: 1px solid rgba(78,163,255,.22);
+    }
+    .icon.orange{
+      background: rgba(255,173,84,.12);
+      border: 1px solid rgba(255,173,84,.22);
+    }
+
+    /* Form */
+    .form-wrap{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start;
+    }
+    @media (max-width: 900px){
+      .form-wrap{grid-template-columns:1fr}
+    }
+    form{
+      display:flex; flex-direction:column; gap:10px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    label{color:var(--muted); font-size:.92rem}
+    input, select, textarea{
+      width:100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.15);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    input:focus, select:focus, textarea:focus{border-color: rgba(78,163,255,.55)}
+    .form-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .small-note{color:var(--muted); font-size:.9rem}
+
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .footer-grid{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+
+    /* ===== Logo ===== */
+    .logo-img{height:44px; width:auto; max-width:120px; object-fit:contain; border-radius:10px; flex-shrink:0}
+    .brand-text{min-width:0}
+    .brand-sub{font-size:.85rem; color:var(--muted); font-weight:700}
+
+    /* ===== Botón hamburguesa (solo móvil) ===== */
+    .menu-btn{
+      display:none;
+      width:44px; height:44px;
+      align-items:center; justify-content:center;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-size:22px; line-height:1;
+      cursor:pointer;
+    }
+    .nav-actions{display:flex; align-items:center; gap:10px}
+
+    /* ===== Tablet ===== */
+    @media (max-width: 900px){
+      .menu-btn{display:inline-flex}
+      .nav{position:relative; gap:10px}
+      .navlinks{
+        display:none;
+        position:absolute; top:100%; left:0; right:0;
+        flex-direction:column; gap:4px;
+        padding:10px;
+        background:rgba(11,18,32,.97);
+        border:1px solid var(--border);
+        border-radius:14px;
+        margin-top:8px;
+        box-shadow:0 20px 50px rgba(0,0,0,.45);
+      }
+      .navlinks.open{display:flex}
+      .navlinks a{padding:14px 12px; font-size:1rem}
+      .hero{padding:32px 0 12px}
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+
+    /* ===== Móvil ===== */
+    @media (max-width: 600px){
+      .container{padding:0 16px}
+      .nav{padding:10px 0}
+      .brand{gap:10px; font-size:.95rem; min-width:0}
+      .logo-img{height:38px; max-width:90px}
+      .brand-sub{display:none}
+      .nav-actions .cta{display:none}   /* el CTA ya está en el hero */
+      .pill{
+        display:flex; flex-wrap:wrap; gap:6px 10px;
+        border-radius:16px; font-size:.9rem; padding:10px 12px;
+      }
+      h1{font-size:clamp(28px, 8vw, 34px)}
+      .lead{font-size:1rem}
+      h2{font-size:1.35rem}
+      section{padding:20px 0}
+      .section-title{flex-direction:column; align-items:flex-start; gap:4px}
+      .grid-3{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .hero-actions{flex-direction:column; align-items:stretch}
+      .hero-actions .cta, .hero-actions .btn-secondary{
+        width:100%; justify-content:center; text-align:center;
+      }
+      .cta, .btn-secondary{min-height:46px; white-space:normal; text-align:center; justify-content:center}
+      .btn-secondary{display:inline-flex; align-items:center; justify-content:center}
+      .hero-card, .card, form{padding:14px}
+      /* 16px evita el zoom automático de iOS al enfocar un campo */
+      input, select, textarea{font-size:16px; min-height:46px}
+      textarea{min-height:120px}
+      .form-actions{flex-direction:column; align-items:stretch}
+      .form-actions .cta{width:100%}
+      form > .cta{width:100%}
+      .footer-grid{flex-direction:column}
+      footer{padding:22px 0 calc(32px + env(safe-area-inset-bottom, 0px))}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <img class="logo-img" src="biotrade_colombia_sas_logo.jpeg" alt="Logo de Biotrade Colombia"/>
+          <div class="brand-text">
+            <div>Biotrade Colombia</div>
+            <div class="brand-sub">Medellín • Transformando el futuro</div>
+          </div>
+        </div>
+
+        <nav class="navlinks" id="menu" aria-label="Navegación">
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#certificaciones">Certificaciones</a>
+          <a href="#pago">Pago justo</a>
+          <a href="#cobertura">Cobertura</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="cta" href="#contacto">Solicitar recolección 🚛</a>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="pill">✅ Recolección y tratamiento • 🧾 Empresa certificada • 📍 Cobertura nacional</div>
+            <h1>Biotrade Colombia Medellín</h1>
+            <p class="lead">
+              Transformamos el futuro recolectando aceite de cocina usado y dándole tratamiento adecuado.
+              Cumplimos normativa, garantizamos procesos certificados y brindamos <b>pago justo</b> por tu aceite.
+            </p>
+
+            <div class="hero-actions">
+              <a class="cta" href="#contacto">Agendar 📩</a>
+              <a class="btn-secondary" href="#como-funciona">Ver el proceso →</a>
+            </div>
+
+            <div style="margin-top:18px" class="muted">
+              <b>Ideal para:</b> restaurantes, hoteles, cafeterías, industrias y aliados ambientales.
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h2 style="margin-top:0; font-size:1.25rem;">¿Qué obtienes con Biotrade?</h2>
+            <div class="stats">
+              <div class="stat">
+                <b>♻️ Tratamiento</b>
+                <span>Gestión responsable del aceite usado</span>
+              </div>
+              <div class="stat">
+                <b>🧾 Certificación</b>
+                <span>Procesos verificables y trazables</span>
+              </div>
+              <div class="stat">
+                <b>📏 Cumplimiento</b>
+                <span>Normativa ambiental y operativa</span>
+              </div>
+              <div class="stat">
+                <b>💰 Pago justo</b>
+                <span>Valoración justa por recolección</span>
+              </div>
+            </div>
+            <div style="margin-top:14px" class="muted">
+              <b>📍 Cobertura nacional</b> — llevamos recolección y tratamiento a diferentes regiones del país.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <h2>Cómo funciona</h2>
+          <div class="muted">Rápido, seguro y con seguimiento</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">1</div>
+            <h3>Solicitas recolección</h3>
+            <p class="muted">Dinos tu cantidad estimada y ubicación. Te contactamos para coordinar.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">2</div>
+            <h3>Recolección y transporte</h3>
+            <p class="muted">Realizamos el retiro con procesos adecuados y registro del servicio.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">3</div>
+            <h3>Tratamiento y pago justo</h3>
+            <p class="muted">El aceite recibe tratamiento; recibes pago conforme al acuerdo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICACIONES -->
+    <section id="certificaciones">
+      <div class="container">
+        <div class="section-title">
+          <h2>Empresa certificada y cumplimiento normativo</h2>
+          <div class="muted">Con enfoque ambiental y trazabilidad</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🧾</div>
+            <h3>Procesos certificados</h3>
+            <p class="muted">Garantizamos estándares en recolección, manejo y tratamiento.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">📚</div>
+            <h3>Cumplimos la normativa</h3>
+            <p class="muted">Operamos bajo lineamientos para gestión responsable del aceite usado.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">🔎</div>
+            <h3>Trazabilidad</h3>
+            <p class="muted">Registro y control del proceso para mayor transparencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGO JUSTO -->
+    <section id="pago">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pago justo por el aceite</h2>
+          <div class="muted">Valoramos tu esfuerzo de forma equitativa</div>
+        </div>
+
+        <div class="card">
+          <p class="muted" style="margin:0;">
+            En Biotrade Colombia Medellín promovemos una alianza justa: recolectamos el aceite usado y te ofrecemos pago conforme a
+            la cantidad y condiciones del servicio. Sin complicaciones: te orientamos desde el inicio.
+          </p>
+          <div class="hero-actions" style="margin-top:14px;">
+            <a class="cta" href="#contacto">Pedir cotización 💬</a>
+            <a class="btn-secondary" href="#contacto">Agendar visita →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COBERTURA -->
+    <section id="cobertura">
+      <div class="container">
+        <div class="section-title">
+          <h2>Cobertura nacional</h2>
+          <div class="muted">Recolección y tratamiento en diferentes regiones</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>Medellín y Antioquia</h3>
+            <p class="muted">Coordinación ágil para aliados locales y establecimientos.</p>
+          </div>
+          <div class="card">
+            <div class="icon blue">🗺️</div>
+            <h3>Otras ciudades del país</h3>
+            <p class="muted">Gestión según disponibilidad y programación del servicio.</p>
+          </div>
+          <div class="card">
+            <div class="icon orange">🕒</div>
+            <h3>Planificación del retiro</h3>
+            <p class="muted">Te ayudamos a organizar el acopio de manera eficiente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contáctanos</h2>
+          <div class="muted">Te respondemos para agendar recolección</div>
+        </div>
+
+        <div class="form-wrap">
+          <form onsubmit="event.preventDefault(); alert('¡Gracias! Tu solicitud fue enviada (demo).');">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label for="empresa">Empresa (opcional)</label>
+              <input id="empresa" name="empresa" type="text" placeholder="Restaurante / Hotel / Industria..." />
+            </div>
+            <div>
+              <label for="ubicacion">Ciudad / Región</label>
+              <input id="ubicacion" name="ubicacion" type="text" required placeholder="Ej. Medellín" />
+            </div>
+            <a class="cta" href="tel:+573171650257">Llámanos 3171650257 📞</a>
+               <div class="card" style="margin-bottom:14px;">
+  <h3 style="margin:0 0 6px;">Contacto directo</h3>
+  <p class="muted" style="margin:0;">
+    📞 Tel: <b>3171650257</b> <br/>
+    <small>*También puedes llamarnos para agendar recolección.</small>
+  </p>
+</div>
+            <div>
+              <label for="tipo">Tipo de cliente</label>
+              <select id="tipo" name="tipo">
+                <option>Restaurante</option>
+                <option>Hotel</option>
+                <option>Cafetería</option>
+                <option>Industria</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="cantidad">Cantidad aproximada (L/semana)</label>
+              <input id="cantidad" name="cantidad" type="number" min="0" step="any" placeholder="Ej. 50" />
+            </div>
+            <div>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu necesidad..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="cta" type="submit">Enviar solicitud 📩</button>
+              <div class="small-note">* Formulario demo (puedes conectarlo a tu correo/CRM).</div>
+            </div>
+          </form>
+
+          <div class="card">
+            <h3 style="margin-top:0">Tu alianza con el futuro ♻️</h3>
+            <p class="muted">
+              Si gestionas aceite usado, Biotrade Colombia Medellín te ayuda a hacerlo de forma responsable:
+              <b>recolección</b>, <b>tratamiento</b>, <b>empresa certificada</b>, <b>cumplimiento normativo</b>,
+              <b>pago justo</b> y <b>cobertura nacional</b>.
+            </p>
+            <div style="margin-top:14px" class="muted">
+              <b>Eslogan:</b> Transformando el futuro
+              <br/>
+              <b>Ubicación:</b> Medellín
+            </div>
+            <div style="margin-top:14px" class="hero-actions">
+              <a class="btn-secondary" href="#como-funciona">Ver proceso →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <b>Biotrade Colombia Medellín</b><br/>
+          <span>Transformando el futuro</span>
+        </div>
+        <div class="muted">
+          © <span id="year"></span> • Recolección y tratamiento de aceite usado
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    function setMenu(open){
+      menu.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.textContent = open ? '✕' : '☰';
+    }
+    menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+  </script>
+</body>
+</html>
